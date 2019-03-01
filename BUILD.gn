@@ -1,0 +1,53 @@
+executable("Aquarium") {
+  sources = [
+    "src/Aquarium.cpp",
+    "src/Aquarium.h",
+    "src/ASSERT.h",
+    "src/Buffer.h",
+    "src/Context.cpp",
+    "src/Context.h",
+    "src/ContextFactory.cpp",
+    "src/ContextFactory.h",
+    "src/FishModel.h",
+    "src/FPSTimer.cpp",
+    "src/FPSTimer.h",
+    "src/GenericModel.h",
+    "src/Main.cpp",
+    "src/Matrix.h",
+    "src/Model.cpp",
+    "src/Model.h",
+    "src/OutsideModel.h",
+    "src/Program.cpp",
+    "src/Program.h",
+    "src/SeaweedModel.h",
+    "src/Texture.cpp",
+    "src/Texture.h",
+    "src/OpenGL/BufferGL.cpp",
+    "src/OpenGL/BufferGL.h",
+    "src/OpenGL/ContextGL.cpp",
+    "src/OpenGL/ContextGL.h",
+    "src/OpenGL/FishModelGL.cpp",
+    "src/OpenGL/FishModelGL.h",
+    "src/OpenGL/GenericModelGL.cpp",
+    "src/OpenGL/GenericModelGL.h",
+    "src/OpenGL/InnerModelGL.cpp",
+    "src/OpenGL/InnerModelGL.h",
+    "src/OpenGL/OutsideModelGL.cpp",
+    "src/OpenGL/OutsideModelGL.h",
+    "src/OpenGL/ProgramGL.cpp",
+    "src/OpenGL/ProgramGL.h",
+    "src/OpenGL/SeaweedModelGL.cpp",
+    "src/OpenGL/SeaweedModelGL.h",
+    "src/OpenGL/TextureGL.cpp",
+    "src/OpenGL/TextureGL.h",
+  ]
+  deps = [
+    "third_party:stb",
+    "third_party:glad",
+    "third_party:glfw",
+    "third_party:glm",
+  ]
+  cflags_cc = [
+    "-Wno-string-conversion"
+  ]
+}
