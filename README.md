@@ -1,8 +1,9 @@
 # WebGLNativePorts
-Repository for native ports of WebGL demos, to compare performance with JavaScript versions.
+Repository for native ports of WebGL demos, to compare performance with JavaScript versions.  
 
-Steps to build:
-git pull https://github.com/Jiawei-Shao/Aquarium_GN.git
-gclient sync
-gn gen --ide=vs out\Debug
-ninja -C out\Debug Aquarium
+Steps to build:  
+git pull https://github.com/Jiawei-Shao/Aquarium_GN.git  
+gclient sync  
+gn gen --ide=vs out\Debug  
+ninja -C out\Debug Aquarium  
+out\Debug\Aquarium --num-fish 10000 --backend opengl  

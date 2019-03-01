@@ -3,55 +3,40 @@ use_relative_hooks = True
 
 vars = {
   'chromium_git': 'https://chromium.googlesource.com',
-  'dawn_git': 'https://dawn.googlesource.com',
   'github_git': 'https://github.com',
-
-  'dawn_standalone': True,
 }
 
 deps = {
   # Dependencies required to use GN/Clang in standalone
   'build': {
     'url': '{chromium_git}/chromium/src/build@e439f6082423106f1fe2afa7e22f8fd4c00691df',
-    'condition': 'dawn_standalone',
   },
   'buildtools': {
     'url': '{chromium_git}/chromium/buildtools@24ebce4578745db15274e180da1938ebc1358243',
-    'condition': 'dawn_standalone',
   },
   'tools/clang': {
     'url': '{chromium_git}/chromium/src/tools/clang@1d879cee563167a2b18baffb096cf9e29f2f9376',
-    'condition': 'dawn_standalone',
   },
   'third_party/binutils': {
     'url': '{chromium_git}/chromium/src/third_party/binutils@2be73f7fbf783d7a0b288e174a5773b67c7656bc',
-    'condition': 'dawn_standalone',
   },
 
-  # Testing, GTest and GMock
   'testing': {
     'url': '{chromium_git}/chromium/src/testing@b07830f6905ce9e33034ad14820bc0a58b6e9e41',
-    'condition': 'dawn_standalone',
   },
   'third_party/googletest': {
     'url': '{chromium_git}/external/github.com/google/googletest@5ec7f0c4a113e2f18ac2c6cc7df51ad6afc24081',
-    'condition': 'dawn_standalone',
   },
 
-  # GLFW for tests and samples
   'third_party/glfw': {
     'url': '{chromium_git}/external/github.com/glfw/glfw@2de2589f910b1a85905f425be4d32f33cec092df',
-    'condition': 'dawn_standalone',
   },
 
-  # Dependencies for samples: stb and GLM
   'third_party/stb': {
     'url': '{github_git}/nothings/stb.git@c7110588a4d24c4bb5155c184fbb77dd90b3116e',
-    'condition': 'dawn_standalone',
   },
   'third_party/glm': {
     'url': '{github_git}/g-truc/glm.git@06f084063fd6d9aa2ef6904517650700ae47b63d',
-    'condition': 'dawn_standalone',
   },
   'third_party/rapidjson': {
     'url': '{github_git}/Tencent/rapidjson.git',
@@ -63,7 +48,7 @@ hooks = [
   {
     'name': 'gn_win',
     'pattern': '.',
-    'condition': 'host_os == "win" and dawn_standalone',
+    'condition': 'host_os == "win"',
     'action': [ 'download_from_google_storage',
                 '--no_resume',
                 '--platform=win32',
@@ -75,7 +60,7 @@ hooks = [
   {
     'name': 'gn_mac',
     'pattern': '.',
-    'condition': 'host_os == "mac" and dawn_standalone',
+    'condition': 'host_os == "mac"',
     'action': [ 'download_from_google_storage',
                 '--no_resume',
                 '--platform=darwin',
@@ -87,7 +72,7 @@ hooks = [
   {
     'name': 'gn_linux64',
     'pattern': '.',
-    'condition': 'host_os == "linux" and dawn_standalone',
+    'condition': 'host_os == "linux"',
     'action': [ 'download_from_google_storage',
                 '--no_resume',
                 '--platform=linux*',
@@ -101,14 +86,14 @@ hooks = [
   {
     'name': 'sysroot_x86',
     'pattern': '.',
-    'condition': 'checkout_linux and ((checkout_x86 or checkout_x64) and dawn_standalone)',
+    'condition': 'checkout_linux and ((checkout_x86 or checkout_x64))',
     'action': ['python', 'build/linux/sysroot_scripts/install-sysroot.py',
                '--arch=x86'],
   },
   {
     'name': 'sysroot_x64',
     'pattern': '.',
-    'condition': 'checkout_linux and (checkout_x64 and dawn_standalone)',
+    'condition': 'checkout_linux and (checkout_x64)',
     'action': ['python', 'build/linux/sysroot_scripts/install-sysroot.py',
                '--arch=x64'],
   },
@@ -116,7 +101,7 @@ hooks = [
     # Update the Windows toolchain if necessary. Must run before 'clang' below.
     'name': 'win_toolchain',
     'pattern': '.',
-    'condition': 'checkout_win and dawn_standalone',
+    'condition': 'checkout_win',
     'action': ['python', 'build/vs_toolchain.py', 'update', '--force'],
   },
   {
@@ -130,7 +115,7 @@ hooks = [
     # Pull rc binaries using checked-in hashes.
     'name': 'rc_win',
     'pattern': '.',
-    'condition': 'checkout_win and (host_os == "win" and dawn_standalone)',
+    'condition': 'checkout_win and (host_os == "win")',
     'action': [ 'download_from_google_storage',
                 '--no_resume',
                 '--no_auth',
