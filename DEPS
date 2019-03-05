@@ -4,6 +4,8 @@ use_relative_hooks = True
 vars = {
   'chromium_git': 'https://chromium.googlesource.com',
   'github_git': 'https://github.com',
+  'dawn_git': 'https://dawn.googlesource.com',
+  'dawn_revision': '5987c4e8395aed194c987c051b56d35485180b46',
 }
 
 deps = {
@@ -40,7 +42,13 @@ deps = {
   },
   'third_party/rapidjson': {
     'url': '{github_git}/Tencent/rapidjson.git',
-  }
+  },
+  'third_party/dawn': {
+    'url': '{dawn_git}/dawn.git@{dawn_revision}',
+  },
+  'third_party/shaderc': {
+    'url': '{chromium_git}/external/github.com/google/shaderc@634dd3545cbccb9362f16f41b3b75703f290a9fd',
+  },
 }
 
 hooks = [
@@ -145,4 +153,5 @@ hooks = [
 recursedeps = [
   # buildtools provides clang_format, libc++, and libc++abi
   'buildtools',
+  'third_party/dawn',
 ]

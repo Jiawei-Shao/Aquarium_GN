@@ -6,7 +6,7 @@
 #include "ContextFactory.h"
 #include "opengl/ContextGL.h"
 #ifndef EGL_EGL_PROTOTYPES
-//#include "dawn/ContextDawn.h"
+#include "dawn/ContextDawn.h"
 #endif
 
 ContextFactory::ContextFactory()
@@ -24,10 +24,10 @@ Context *ContextFactory::createContext(std::string str)
     {
         context = new ContextGL();
     }
-    /*else if (str == "dawn")
+    else if (str == "dawn")
     {
        context = new ContextDawn();
-    }*/
+    }
 
     return context;
 }
