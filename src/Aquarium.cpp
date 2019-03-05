@@ -208,13 +208,13 @@ void Aquarium::updateUrls()
     _NSGetExecutablePath(temp, &size);
     mPath             = std::string(temp);
     int nPos = mPath.find_last_of(slash);
-    mPath = mPath.substr(0, nPos) + slash + ".." + slash;
+    mPath = mPath.substr(0, nPos) + slash + ".." + slash + ".." + slash;
     #else
     char temp[200];
     ssize_t count = readlink("/proc/self/exe", temp, sizeof(temp));
     mPath             = std::string(temp);
     int nPos = mPath.find_last_of(slash);
-    mPath = mPath.substr(0, nPos) + slash + ".." + slash;
+    mPath = mPath.substr(0, nPos) + slash + ".." + slash + ".." + slash;
     #endif
 }
 

@@ -23,7 +23,7 @@
 #else
 #include "third_party/glad/include/glad/glad.h"
 #endif
-#include "third_party/glfw/include/GLFW/glfw3.h"
+#include "third_party/dawn/third_party/glfw/include/GLFW/glfw3.h"
 
 class BufferGL;
 class TextureGL;

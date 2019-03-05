@@ -4,7 +4,7 @@
 // found in the LICENSE file.
 //
 #include "ContextFactory.h"
-#include "opengl/ContextGL.h"
+#include "OpenGL/ContextGL.h"
 #ifndef EGL_EGL_PROTOTYPES
 #include "dawn/ContextDawn.h"
 #endif
