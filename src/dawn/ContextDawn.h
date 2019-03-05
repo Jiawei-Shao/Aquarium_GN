@@ -14,7 +14,7 @@
 #include "dawn/dawncpp.h"
 #include "third_party/dawn/src/utils/DawnHelpers.h"
 
-#include "GLFW/glfw3.h"
+#include "third_party/dawn/third_party/glfw/include/GLFW/glfw3.h"
 
 class TextureDawn;
 class BufferDawn;

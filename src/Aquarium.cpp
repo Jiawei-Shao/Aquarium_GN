@@ -33,21 +33,19 @@
 #include "Program.h"
 #include "SeaweedModel.h"
 #include "Texture.h"
-#include "opengl/ContextGL.h"
+#include "OpenGL/ContextGL.h"
 #include "third_party/rapidjson/include/rapidjson/document.h"
 #include "third_party/rapidjson/include/rapidjson/istreamwrapper.h"
 #include "third_party/rapidjson/include/rapidjson/stringbuffer.h"
 #include "third_party/rapidjson/include/rapidjson/writer.h"
 
-//static const char *repoFolder = "aquarium-optimized";
-//static const char *sourceFolder = "src";
 static const char *shaderFolder = "shaders";
 static const char *resourceFolder = "assets";
 
 Aquarium::Aquarium()
-    : mModelEnumMap(NULL),
-      mTextureMap(NULL),
-      mProgramMap(NULL),
+    : mModelEnumMap(),
+      mTextureMap(),
+      mProgramMap(),
       mAquariumModels(),
       context(nullptr),
       fpsTimer(),
@@ -197,20 +195,22 @@ void Aquarium::display()
 void Aquarium::updateUrls()
 {
     // Get path of current build.
-    TCHAR temp[200];
     #if defined(WIN32) || defined(_WIN32) || defined(__WIN32)
+    TCHAR temp[200];
     GetModuleFileName(NULL, temp, MAX_PATH);
     std::wstring ws(temp);
     mPath = std::string(ws.begin(), ws.end());
     size_t nPos = mPath.find_last_of(slash);
     mPath = mPath.substr(0, nPos) + slash + ".." + slash + ".." + slash;
     #elif __APPLE__
+    char temp[200];
     uint32_t size = sizeof(temp);
     _NSGetExecutablePath(temp, &size);
     mPath             = std::string(temp);
     int nPos = mPath.find_last_of(slash);
     mPath = mPath.substr(0, nPos) + slash + ".." + slash;
     #else
+    char temp[200];
     ssize_t count = readlink("/proc/self/exe", temp, sizeof(temp));
     mPath             = std::string(temp);
     int nPos = mPath.find_last_of(slash);

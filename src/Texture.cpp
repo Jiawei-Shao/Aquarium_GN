@@ -20,7 +20,7 @@
 #include "third_party/stb/stb_image_resize.h"
 
 Texture::Texture(std::string name, const std::string &url, bool flip)
-    : mUrls(NULL),
+    : mUrls(),
     mWidth(0),
     mHeight(0),
     mFlip(flip),
@@ -86,7 +86,7 @@ void Texture::generateMipmap(uint8_t *input_pixels,
                            int num_channels)
 {
     int mipmapLevel =
-        static_cast<uint32_t>(std::floor(std::log2(std::max(output_w, output_h)))) + 1;
+        static_cast<uint32_t>(floor(log2(std::max(output_w, output_h)))) + 1;
     output_pixels.resize(mipmapLevel);
     int height      = output_h;
     int width  = output_w;

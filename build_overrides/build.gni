@@ -1,6 +1,8 @@
 # Tell Dawn and dependencies to not do Chromium-specific things
 build_with_chromium = false
 
+use_system_xcode = true
+
 # Use Chromium's binutils to have "hermetic" builds on bots
 linux_use_bundled_binutils_override = true
 
