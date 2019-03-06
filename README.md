@@ -9,4 +9,13 @@ Steps to build:
 5. Run Aquarium.exe. 
    For example:  
    - out\Debug\Aquarium --num-fish 10000 --backend opengl  
-   - out\Debug\Aquarium --num-fish 10000 --backend dawn_d3d12   
+   - out\Debug\Aquarium --num-fish 10000 --backend dawn_d3d12  
+
+Supported "--backend" options: 
+- "opengl": Linux<sup>[1]</sup>, Windows 10  
+- "dawn_d3d12": Windows 10  
+- "dawn_vulkan": Linux, Windows 10  
+- "dawn_metal": macOS  
+- "dawn_opengl": Linux, Windows 10  
+
+[1] "Linux" refers to Ubuntu 18.04
