@@ -23,7 +23,12 @@
 #else
 #include "third_party/glad/include/glad/glad.h"
 #endif
+
+#ifdef ENABLE_DAWN_BACKEND
 #include "third_party/dawn/third_party/glfw/include/GLFW/glfw3.h"
+#else
+#include "third_party/glfw/include/GLFW/glfw3.h"
+#endif
 
 class BufferGL;
 class TextureGL;
@@ -91,17 +96,17 @@ class ContextGL : public Context
   private:
     void initState();
 
-#ifndef EGL_EGL_PROTOTYPES
-      GLFWwindow *mWindow;
-#else
-      EGLBoolean FindEGLConfig(EGLDisplay dpy, const EGLint *attrib_list, EGLConfig *config);
-      EGLContext createContext(EGLContext share) const;
+    GLFWwindow *mWindow;
 
-      GLFWwindow *mWindow;
-      EGLSurface mSurface;
-      EGLContext mContext;
-      EGLDisplay mDisplay;
-      EGLConfig mConfig;
+#ifdef EGL_EGL_PROTOTYPES
+    EGLBoolean FindEGLConfig(EGLDisplay dpy, const EGLint *attrib_list, EGLConfig *config);
+    EGLContext createContext(EGLContext share) const;
+
+    GLFWwindow *mWindow;
+    EGLSurface mSurface;
+    EGLContext mContext;
+    EGLDisplay mDisplay;
+    EGLConfig mConfig;
 #endif
 };
 
