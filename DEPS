@@ -33,6 +33,10 @@ deps = {
   'third_party/stb': {
     'url': '{github_git}/nothings/stb.git@c7110588a4d24c4bb5155c184fbb77dd90b3116e',
   },
+  'third_party/glfw': {
+    'url': '{chromium_git}/external/github.com/glfw/glfw@2de2589f910b1a85905f425be4d32f33cec092df',
+    'condition': 'dawn_standalone',
+  },
   'third_party/glm': {
     'url': '{github_git}/g-truc/glm.git@06f084063fd6d9aa2ef6904517650700ae47b63d',
   },
