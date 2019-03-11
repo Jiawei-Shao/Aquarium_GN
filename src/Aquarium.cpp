@@ -34,10 +34,10 @@
 #include "SeaweedModel.h"
 #include "Texture.h"
 #include "OpenGL/ContextGL.h"
-#include "third_party/rapidjson/include/rapidjson/document.h"
-#include "third_party/rapidjson/include/rapidjson/istreamwrapper.h"
-#include "third_party/rapidjson/include/rapidjson/stringbuffer.h"
-#include "third_party/rapidjson/include/rapidjson/writer.h"
+#include "rapidjson/document.h"
+#include "rapidjson/istreamwrapper.h"
+#include "rapidjson/stringbuffer.h"
+#include "rapidjson/writer.h"
 
 static const char *shaderFolder = "shaders";
 static const char *resourceFolder = "assets";

@@ -21,14 +21,10 @@
 #include <memory>
 #include "EGLWindow.h"
 #else
-#include "third_party/glad/include/glad/glad.h"
+#include "glad/glad.h"
 #endif
 
-#ifdef ENABLE_DAWN_BACKEND
-#include "third_party/dawn/third_party/glfw/include/GLFW/glfw3.h"
-#else
-#include "third_party/glfw/include/GLFW/glfw3.h"
-#endif
+#include "GLFW/glfw3.h"
 
 class BufferGL;
 class TextureGL;

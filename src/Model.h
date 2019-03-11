@@ -12,8 +12,8 @@
 #ifndef MODEL_H
 #define MODEL_H 1
 
-#include <stdio.h>
-#include <string.h>
+#include <cstdio>
+#include <cstring>
 #include <vector>
 
 #include "Aquarium.h"

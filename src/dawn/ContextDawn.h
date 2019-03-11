@@ -12,9 +12,9 @@
 #include "../Context.h"
 
 #include "dawn/dawncpp.h"
-#include "third_party/dawn/src/utils/DawnHelpers.h"
+#include "utils/DawnHelpers.h"
 
-#include "third_party/dawn/third_party/glfw/include/GLFW/glfw3.h"
+#include "GLFW/glfw3.h"
 
 class TextureDawn;
 class BufferDawn;

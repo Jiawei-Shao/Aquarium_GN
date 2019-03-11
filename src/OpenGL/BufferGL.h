@@ -19,7 +19,7 @@
 #include "EGL/eglplatform.h"
 #include "EGLWindow.h"
 #else
-#include "third_party/glad/include/glad/glad.h"
+#include "glad/glad.h"
 #endif
 
 #include "../Buffer.h"

@@ -19,15 +19,15 @@
 #include "EGL/eglplatform.h"
 #include "EGLWindow.h"
 #else
-#include "third_party/glad/include/glad/glad.h"
+#include "glad/glad.h"
 #endif
-#include <stdio.h>
+#include <cstdio>
 #include <string>
 #include <vector>
 #include <iostream>
 #include <fstream>
-#include <stdlib.h>
-#include <string.h>
+#include <cstdlib>
+#include <cstring>
 #include "ProgramGL.h"
 #include <map>
 #include <regex>

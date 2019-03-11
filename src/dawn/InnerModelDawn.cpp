@@ -5,6 +5,8 @@
 //
 // InnerModelDawn.cpp: Implements inner model of Dawn.
 
+#include <cstring>
+
 #include "InnerModelDawn.h"
 
 InnerModelDawn::InnerModelDawn(const Context* context, Aquarium* aquarium, MODELGROUP type, MODELNAME name, bool blend)
@@ -117,7 +119,7 @@ void InnerModelDawn::draw()
 
 void InnerModelDawn::updatePerInstanceUniforms(ViewUniforms* viewUniforms)
 {
-    memcpy(&viewUniformPer, viewUniforms, sizeof(ViewUniforms));
+    std::memcpy(&viewUniformPer, viewUniforms, sizeof(ViewUniforms));
 
     contextDawn->setBufferData(viewBuffer, 0, sizeof(ViewUniforms), &viewUniformPer);
 }

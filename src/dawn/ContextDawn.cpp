@@ -25,8 +25,8 @@
 #include <dawn/dawncpp.h>
 #include <dawn_native/DawnNative.h>
 #include <shaderc/shaderc.hpp>
-#include "third_party/dawn/src/common/Constants.h"
-#include "third_party/dawn/src/utils/BackendBinding.h"
+#include "common/Constants.h"
+#include "utils/BackendBinding.h"
 
 #include <array>
 #include <cstring>

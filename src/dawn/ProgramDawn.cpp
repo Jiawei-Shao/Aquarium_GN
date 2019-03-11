@@ -8,7 +8,7 @@
 #include "ContextDawn.h"
 #include "../ASSERT.h"
 #include <fstream>
-#include <string.h>
+#include <cstring>
 #include <regex>
 
 ProgramDawn::ProgramDawn(ContextDawn *context, std::string vId, std::string fId)

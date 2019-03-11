@@ -9,15 +9,15 @@
 
 #include <algorithm>
 #include <iostream>
-#include <stdio.h>
-#include<string.h>
+#include <cstdio>
+#include <cstring>
 
 #include "ASSERT.h"
 
 #define STB_IMAGE_IMPLEMENTATION
 #define STB_IMAGE_RESIZE_IMPLEMENTATION
-#include "third_party/stb/stb_image.h"
-#include "third_party/stb/stb_image_resize.h"
+#include "stb_image.h"
+#include "stb_image_resize.h"
 
 Texture::Texture(std::string name, const std::string &url, bool flip)
     : mUrls(),

@@ -6,7 +6,7 @@
 // Texture.h: Define abstract Texture for Aquarium.
 
 #pragma once
-#ifndef  TEXTURE_H
+#ifndef TEXTURE_H
 #define TEXTURE_H 1
 
 #include <string>

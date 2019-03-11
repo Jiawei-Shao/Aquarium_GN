@@ -119,7 +119,7 @@ void TextureDawn::loadTexture()
         descriptor.sampleCount = 1;
         descriptor.format = mFormat;
         descriptor.levelCount =
-            static_cast<uint32_t>(std::floor(std::log2(std::max(mWidth, mHeight)))) + 1;
+            static_cast<uint32_t>(std::floor(static_cast<float>(std::log2(std::max(mWidth, mHeight))))) + 1;
         descriptor.usage = dawn::TextureUsageBit::TransferDst | dawn::TextureUsageBit::Sampled;
         mTexture = context->createTexture(descriptor);
 
@@ -146,7 +146,7 @@ void TextureDawn::loadTexture()
         viewDescriptor.format = mFormat;
         viewDescriptor.baseMipLevel = 0;
         viewDescriptor.levelCount =
-            static_cast<uint32_t>(std::floor(std::log2(std::max(mWidth, mHeight)))) + 1;
+            static_cast<uint32_t>(std::floor(static_cast<float>(std::log2(std::max(mWidth, mHeight))))) + 1;
         viewDescriptor.baseArrayLayer = 0;
         viewDescriptor.layerCount = 1;
 
