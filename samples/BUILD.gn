@@ -1,0 +1,4 @@
+group("all") {
+  testonly = true
+  deps = []
+}

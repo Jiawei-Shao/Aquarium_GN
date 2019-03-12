@@ -98,7 +98,6 @@ class ContextGL : public Context
     EGLBoolean FindEGLConfig(EGLDisplay dpy, const EGLint *attrib_list, EGLConfig *config);
     EGLContext createContext(EGLContext share) const;
 
-    GLFWwindow *mWindow;
     EGLSurface mSurface;
     EGLContext mContext;
     EGLDisplay mDisplay;
