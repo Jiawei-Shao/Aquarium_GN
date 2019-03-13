@@ -17,17 +17,8 @@ deps = {
   'build': {
     'url': '{chromium_git}/chromium/src/build@9a53be87ebb636c35f2ed9772e5deaeb350d790b',
   },
-  'buildtools/clang_format/script': {
-    'url': '{chromium_git}/chromium/llvm-project/cfe/tools/clang-format.git@{clang_format_revision}',
-  },
-  'buildtools/third_party/libc++/trunk': {
-    'url': '{chromium_git}/chromium/llvm-project/libcxx.git@{libcxx_revision}',
-  },
-  'buildtools/third_party/libc++abi/trunk': {
-    'url': '{chromium_git}/chromium/llvm-project/libcxxabi.git@{libcxxabi_revision}',
-  },
-  'buildtools/third_party/libunwind/trunk': {
-    'url': '{chromium_git}/external/llvm.org/libunwind.git@{libunwind_revision}',
+  'buildtools': {
+    'url': '{chromium_git}/chromium/buildtools.git@6fbda1b24c1893a893b17aa219b765b9e7c801d8',
   },
   'tools/clang': {
     'url': '{chromium_git}/chromium/src/tools/clang@3114fbc11f9644c54dd0a4cdbfa867bac50ff983',
