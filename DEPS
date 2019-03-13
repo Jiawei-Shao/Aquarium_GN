@@ -1,23 +1,36 @@
-use_relative_paths = True
-use_relative_hooks = True
-
 vars = {
   'chromium_git': 'https://chromium.googlesource.com',
   'github_git': 'https://github.com',
   'dawn_git': 'https://dawn.googlesource.com',
   'dawn_revision': '5987c4e8395aed194c987c051b56d35485180b46',
+  'angle_root': 'third_party/angle',
+  'angle_revision': '4d153383bd3a2359a44fb0c13a65119c0087702f',
+
+  'clang_format_revision': '96636aa0e9f047f17447f2d45a094d0b59ed7917',
+  "libcxx_revision": "a50f5035629b7621e92acef968403f71b7d48553",
+  "libcxxabi_revision": "0d529660e32d77d9111912d73f2c74fc5fa2a858",
+  "libunwind_revision": "69d9b84cca8354117b9fe9705a4430d789ee599b",
 }
 
 deps = {
   # Dependencies required to use GN/Clang in standalone
   'build': {
-    'url': '{chromium_git}/chromium/src/build@e439f6082423106f1fe2afa7e22f8fd4c00691df',
+    'url': '{chromium_git}/chromium/src/build@9a53be87ebb636c35f2ed9772e5deaeb350d790b',
   },
-  'buildtools': {
-    'url': '{chromium_git}/chromium/buildtools@24ebce4578745db15274e180da1938ebc1358243',
+  'buildtools/clang_format/script': {
+    'url': '{chromium_git}/chromium/llvm-project/cfe/tools/clang-format.git@{clang_format_revision}',
+  },
+  'buildtools/third_party/libc++/trunk': {
+    'url': '{chromium_git}/chromium/llvm-project/libcxx.git@{libcxx_revision}',
+  },
+  'buildtools/third_party/libc++abi/trunk': {
+    'url': '{chromium_git}/chromium/llvm-project/libcxxabi.git@{libcxxabi_revision}',
+  },
+  'buildtools/third_party/libunwind/trunk': {
+    'url': '{chromium_git}/external/llvm.org/libunwind.git@{libunwind_revision}',
   },
   'tools/clang': {
-    'url': '{chromium_git}/chromium/src/tools/clang@1d879cee563167a2b18baffb096cf9e29f2f9376',
+    'url': '{chromium_git}/chromium/src/tools/clang@3114fbc11f9644c54dd0a4cdbfa867bac50ff983',
   },
   'third_party/binutils': {
     'url': '{chromium_git}/chromium/src/third_party/binutils@2be73f7fbf783d7a0b288e174a5773b67c7656bc',
@@ -35,7 +48,6 @@ deps = {
   },
   'third_party/glfw': {
     'url': '{chromium_git}/external/github.com/glfw/glfw@2de2589f910b1a85905f425be4d32f33cec092df',
-    'condition': 'dawn_standalone',
   },
   'third_party/glm': {
     'url': '{github_git}/g-truc/glm.git@06f084063fd6d9aa2ef6904517650700ae47b63d',
@@ -43,12 +55,15 @@ deps = {
   'third_party/rapidjson': {
     'url': '{github_git}/Tencent/rapidjson.git',
   },
-  'third_party/dawn': {
-    'url': '{dawn_git}/dawn.git@{dawn_revision}',
-  },
   'third_party/shaderc': {
     'url': '{chromium_git}/external/github.com/google/shaderc@634dd3545cbccb9362f16f41b3b75703f290a9fd',
   },
+  'third_party/dawn': {
+    'url': '{dawn_git}/dawn.git@{dawn_revision}',
+  },
+  'third_party/angle': {
+    'url': '{chromium_git}/angle/angle.git@{angle_revision}',
+  }
 }
 
 hooks = [
@@ -153,5 +168,6 @@ hooks = [
 recursedeps = [
   # buildtools provides clang_format, libc++, and libc++abi
   'buildtools',
+  'third_party/angle',
   'third_party/dawn',
 ]
